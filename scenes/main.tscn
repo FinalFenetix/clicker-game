@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj733nmifxim7"]
+[gd_scene load_steps=5 format=3 uid="uid://cj733nmifxim7"]
 
 [ext_resource type="Texture2D" uid="uid://dsgcshqs7he63" path="res://icon.svg" id="1_1e0lb"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_escjf"]
 [ext_resource type="Script" path="res://scripts/texture_button.gd" id="2_ib28b"]
+[ext_resource type="Script" path="res://scripts/coinsperclick.gd" id="4_pgstg"]
 
 [node name="Main" type="Node2D"]
 
@@ -51,4 +52,25 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
 script = ExtResource("2_escjf")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = 2.0
+offset_right = -23.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="coinsperclick" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "+1 coins per click
+-50"
+script = ExtResource("4_pgstg")
+
 [connection signal="pressed" from="CanvasLayer/Control/AspectRatioContainer/TextureButton" to="CanvasLayer/Control/AspectRatioContainer/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/coinsperclick" to="CanvasLayer/Control/HBoxContainer/coinsperclick" method="_on_pressed"]

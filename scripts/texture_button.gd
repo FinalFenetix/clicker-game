@@ -3,4 +3,4 @@ extends TextureButton
 
 
 func _on_pressed() -> void: # On self pressed
-	Global.coins += 1
+	Global.coins += Global.coinsperpress
