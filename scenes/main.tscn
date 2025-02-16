@@ -1,7 +1,54 @@
-[gd_scene format=3 uid="uid://cj733nmifxim7"]
+[gd_scene load_steps=4 format=3 uid="uid://cj733nmifxim7"]
+
+[ext_resource type="Texture2D" uid="uid://dsgcshqs7he63" path="res://icon.svg" id="1_1e0lb"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="2_escjf"]
+[ext_resource type="Script" path="res://scripts/texture_button.gd" id="2_ib28b"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_1e0lb")
+stretch_mode = 5
+script = ExtResource("2_ib28b")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 70.0
+offset_bottom = 81.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+script = ExtResource("2_escjf")
+
+[connection signal="pressed" from="CanvasLayer/Control/AspectRatioContainer/TextureButton" to="CanvasLayer/Control/AspectRatioContainer/TextureButton" method="_on_pressed"]
