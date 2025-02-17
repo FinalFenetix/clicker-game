@@ -4,6 +4,7 @@ var coins: float = 0
 var coinsPerPress: float = 1
 var inflationCost: float = 1
 var coinsPerSecond: float = 0
+var buttonSkin = 0
 
 func _ready() -> void:
 	pass
