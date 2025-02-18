@@ -28,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/Control"]
+[node name="Buttons" type="AspectRatioContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -42,7 +42,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DefaultButton" type="TextureButton" parent="CanvasLayer/Control/AspectRatioContainer"]
+[node name="DefaultButton" type="TextureButton" parent="CanvasLayer/Control/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -50,22 +50,10 @@ texture_normal = ExtResource("1_1e0lb")
 stretch_mode = 5
 script = ExtResource("2_ib28b")
 
-[node name="CookieButton" type="TextureButton" parent="CanvasLayer/Control/AspectRatioContainer"]
+[node name="CookieButton" type="TextureButton" parent="CanvasLayer/Control/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("5_uxxyx")
 script = ExtResource("4_o77vl")
-
-[node name="Coins" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 1
-offset_left = 16.0
-offset_top = 12.0
-offset_right = 70.0
-offset_bottom = 81.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Test"
-script = ExtResource("2_escjf")
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -154,8 +142,20 @@ theme_override_font_sizes/font_size = 30
 text = "Test"
 script = ExtResource("6_fwd8j")
 
-[connection signal="pressed" from="CanvasLayer/Control/AspectRatioContainer/DefaultButton" to="CanvasLayer/Control/AspectRatioContainer/DefaultButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/AspectRatioContainer/CookieButton" to="CanvasLayer/Control/AspectRatioContainer/CookieButton" method="_on_pressed"]
+[node name="Coins" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 117.0
+offset_bottom = 81.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Test"
+script = ExtResource("2_escjf")
+
+[connection signal="pressed" from="CanvasLayer/Control/Buttons/DefaultButton" to="CanvasLayer/Control/Buttons/DefaultButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Buttons/CookieButton" to="CanvasLayer/Control/Buttons/CookieButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/coinsperclick" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/coinsperclick" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" method="_on_pressed"]
 [connection signal="timeout" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker/Timer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" method="_on_timer_timeout"]
