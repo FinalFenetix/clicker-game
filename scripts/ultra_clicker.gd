@@ -1,6 +1,6 @@
 extends Button
 
-@export var originalCost: float = 1250
+@export var originalCost: float = 500
 var currentCost: float = originalCost * Global.inflationCost
 var inflationCost:= 1.0
 
