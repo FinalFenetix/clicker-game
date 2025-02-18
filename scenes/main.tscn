@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj733nmifxim7"]
+[gd_scene load_steps=18 format=3 uid="uid://cj733nmifxim7"]
 
 [ext_resource type="Texture2D" uid="uid://dsgcshqs7he63" path="res://icon.svg" id="1_1e0lb"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_escjf"]
@@ -12,7 +12,11 @@
 [ext_resource type="Script" path="res://scripts/coin_click_stats.gd" id="6_fwd8j"]
 [ext_resource type="Script" path="res://scripts/ultra_clicker.gd" id="6_qbfmo"]
 [ext_resource type="Script" path="res://scripts/better_curso.gd" id="10_3p1cm"]
+[ext_resource type="Script" path="res://scripts/employee.gd" id="10_tdnlw"]
+[ext_resource type="Script" path="res://scripts/cat.gd" id="11_42jxk"]
 [ext_resource type="Script" path="res://scripts/auto_spammer.gd" id="11_l2pd6"]
+[ext_resource type="Script" path="res://scripts/close_all_windows.gd" id="12_pg5qg"]
+[ext_resource type="Script" path="res://scripts/multiple_cursor_mod.gd" id="13_pepwq"]
 
 [node name="Main" type="Node2D"]
 
@@ -112,6 +116,40 @@ theme_override_font_sizes/font_size = 26
 text = "Better cursor"
 script = ExtResource("10_3p1cm")
 
+[node name="Employee" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Employee"
+script = ExtResource("10_tdnlw")
+
+[node name="Cat" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Cat"
+script = ExtResource("11_42jxk")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Close all windows" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Close all windows"
+script = ExtResource("12_pg5qg")
+
+[node name="Multiple cursor mod" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Multiple cursors"
+script = ExtResource("13_pepwq")
+
+[node name="1970\'s mouse" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "1970's mouse"
+
 [node name="Skins" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
 visible = false
 custom_minimum_size = Vector2(325, 800)
@@ -162,5 +200,10 @@ script = ExtResource("2_escjf")
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Ultra clicker" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Ultra clicker" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto spammer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto spammer" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Better curso" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Better curso" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Employee" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Employee" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat" method="_on_pressed"]
+[connection signal="timeout" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat/Timer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat" method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Close all windows" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Close all windows" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Multiple cursor mod" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Multiple cursor mod" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/DefaultSkin" to="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/DefaultSkin" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/CookieSkin" to="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/CookieSkin" method="_on_pressed"]
