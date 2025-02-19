@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj733nmifxim7"]
+[gd_scene load_steps=18 format=3 uid="uid://cj733nmifxim7"]
 
 [ext_resource type="Texture2D" uid="uid://dsgcshqs7he63" path="res://icon.svg" id="1_1e0lb"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_escjf"]
@@ -11,6 +11,12 @@
 [ext_resource type="Script" path="res://scripts/cookie_skin.gd" id="6_3dlfj"]
 [ext_resource type="Script" path="res://scripts/coin_click_stats.gd" id="6_fwd8j"]
 [ext_resource type="Script" path="res://scripts/ultra_clicker.gd" id="6_qbfmo"]
+[ext_resource type="Script" path="res://scripts/better_curso.gd" id="10_3p1cm"]
+[ext_resource type="Script" path="res://scripts/employee.gd" id="10_tdnlw"]
+[ext_resource type="Script" path="res://scripts/cat.gd" id="11_42jxk"]
+[ext_resource type="Script" path="res://scripts/auto_spammer.gd" id="11_l2pd6"]
+[ext_resource type="Script" path="res://scripts/close_all_windows.gd" id="12_pg5qg"]
+[ext_resource type="Script" path="res://scripts/multiple_cursor_mod.gd" id="13_pepwq"]
 
 [node name="Main" type="Node2D"]
 
@@ -26,7 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/Control"]
+[node name="Buttons" type="AspectRatioContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,7 +46,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DefaultButton" type="TextureButton" parent="CanvasLayer/Control/AspectRatioContainer"]
+[node name="DefaultButton" type="TextureButton" parent="CanvasLayer/Control/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -48,22 +54,10 @@ texture_normal = ExtResource("1_1e0lb")
 stretch_mode = 5
 script = ExtResource("2_ib28b")
 
-[node name="CookieButton" type="TextureButton" parent="CanvasLayer/Control/AspectRatioContainer"]
+[node name="CookieButton" type="TextureButton" parent="CanvasLayer/Control/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("5_uxxyx")
 script = ExtResource("4_o77vl")
-
-[node name="Coins" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 1
-offset_left = 16.0
-offset_top = 12.0
-offset_right = 70.0
-offset_bottom = 81.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Test"
-script = ExtResource("2_escjf")
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -79,30 +73,10 @@ theme_override_font_sizes/font_size = 24
 tab_alignment = 2
 current_tab = 0
 
-[node name="Skins" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
+[node name="Shop" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
 custom_minimum_size = Vector2(325, 800)
 layout_mode = 2
 metadata/_tab_index = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer/Skins"]
-layout_mode = 2
-
-[node name="DefaultSkin" type="TextureButton" parent="CanvasLayer/Control/TabContainer/Skins/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("1_1e0lb")
-script = ExtResource("4_6gnap")
-
-[node name="CookieSkin" type="TextureButton" parent="CanvasLayer/Control/TabContainer/Skins/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-texture_normal = ExtResource("5_uxxyx")
-script = ExtResource("6_3dlfj")
-
-[node name="Shop" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
-visible = false
-custom_minimum_size = Vector2(325, 800)
-layout_mode = 2
-metadata/_tab_index = 1
 
 [node name="ShopButtons" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer/Shop"]
 layout_mode = 2
@@ -130,6 +104,71 @@ theme_override_font_sizes/font_size = 30
 text = "Ultra clicker"
 script = ExtResource("6_qbfmo")
 
+[node name="Auto spammer" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Auto-spammer"
+script = ExtResource("11_l2pd6")
+
+[node name="Better curso" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Better cursor"
+script = ExtResource("10_3p1cm")
+
+[node name="Employee" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Employee"
+script = ExtResource("10_tdnlw")
+
+[node name="Cat" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Cat"
+script = ExtResource("11_42jxk")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Close all windows" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Close all windows"
+script = ExtResource("12_pg5qg")
+
+[node name="Multiple cursor mod" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Multiple cursors"
+script = ExtResource("13_pepwq")
+
+[node name="Upgrades" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Skins" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(325, 800)
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer/Skins"]
+layout_mode = 2
+
+[node name="DefaultSkin" type="TextureButton" parent="CanvasLayer/Control/TabContainer/Skins/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_1e0lb")
+script = ExtResource("4_6gnap")
+
+[node name="CookieSkin" type="TextureButton" parent="CanvasLayer/Control/TabContainer/Skins/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("5_uxxyx")
+script = ExtResource("6_3dlfj")
+
 [node name="CoinClickStats" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 offset_left = 20.0
@@ -140,11 +179,30 @@ theme_override_font_sizes/font_size = 30
 text = "Test"
 script = ExtResource("6_fwd8j")
 
-[connection signal="pressed" from="CanvasLayer/Control/AspectRatioContainer/DefaultButton" to="CanvasLayer/Control/AspectRatioContainer/DefaultButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/AspectRatioContainer/CookieButton" to="CanvasLayer/Control/AspectRatioContainer/CookieButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/DefaultSkin" to="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/DefaultSkin" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/CookieSkin" to="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/CookieSkin" method="_on_pressed"]
+[node name="Coins" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 117.0
+offset_bottom = 81.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Test"
+script = ExtResource("2_escjf")
+
+[connection signal="pressed" from="CanvasLayer/Control/Buttons/DefaultButton" to="CanvasLayer/Control/Buttons/DefaultButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Buttons/CookieButton" to="CanvasLayer/Control/Buttons/CookieButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/coinsperclick" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/coinsperclick" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" method="_on_pressed"]
 [connection signal="timeout" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker/Timer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Ultra clicker" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Ultra clicker" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto spammer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto spammer" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Better curso" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Better curso" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Employee" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Employee" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat" method="_on_pressed"]
+[connection signal="timeout" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat/Timer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Cat" method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Close all windows" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Close all windows" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Multiple cursor mod" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Multiple cursor mod" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/DefaultSkin" to="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/DefaultSkin" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/CookieSkin" to="CanvasLayer/Control/TabContainer/Skins/VBoxContainer/CookieSkin" method="_on_pressed"]
