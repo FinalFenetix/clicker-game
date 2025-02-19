@@ -144,17 +144,16 @@ theme_override_font_sizes/font_size = 30
 text = "Multiple cursors"
 script = ExtResource("13_pepwq")
 
-[node name="1970\'s mouse" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+[node name="Upgrades" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "1970's mouse"
+metadata/_tab_index = 1
 
 [node name="Skins" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
 visible = false
 custom_minimum_size = Vector2(325, 800)
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer/Skins"]
 layout_mode = 2
