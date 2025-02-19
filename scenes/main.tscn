@@ -188,7 +188,7 @@ theme_override_font_sizes/font_size = 30
 text = "Multiple cursors"
 script = ExtResource("13_pepwq")
 
-[node name="Upgrades" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
+[node name="UPGRDS" type="ScrollContainer" parent="CanvasLayer/Control/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
