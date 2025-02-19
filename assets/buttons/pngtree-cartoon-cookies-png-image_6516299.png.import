@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://corkqop2cds5q"
-path="res://.godot/imported/pngtree-cartoon-cookies-png-image_6516299.png-de761b10c4a01c504efca58478d7a859.ctex"
+path="res://.godot/imported/pngtree-cartoon-cookies-png-image_6516299.png-ee4b2d92f61abf72f2164858b3a7138e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pngtree-cartoon-cookies-png-image_6516299.png"
-dest_files=["res://.godot/imported/pngtree-cartoon-cookies-png-image_6516299.png-de761b10c4a01c504efca58478d7a859.ctex"]
+source_file="res://assets/buttons/pngtree-cartoon-cookies-png-image_6516299.png"
+dest_files=["res://.godot/imported/pngtree-cartoon-cookies-png-image_6516299.png-ee4b2d92f61abf72f2164858b3a7138e.ctex"]
 
 [params]
 

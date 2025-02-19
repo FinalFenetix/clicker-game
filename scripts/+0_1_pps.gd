@@ -1,24 +1,21 @@
-extends Button
+extends TextureButton
 
-@export var originalCost: float = 75000
+@export var originalCost: float = 100
 var currentCost: float = originalCost * Global.inflationCost
 var inflationCost:= 1.0
-
 
 func _process(delta: float) -> void:
 	currentCost = originalCost * inflationCost
 	currentCost = round(currentCost * 10) / 10
-	text = "Cat \n Increase clicks per \n second by 10000000 \n for 10 seconds! \n cost: " + str(currentCost)
-
 
 func _on_pressed() -> void:
 	if Global.coins >= currentCost:
 		Global.coins -= currentCost
-		Global.coinsPerSecond += 10000000
-		$Timer.start()
-		Global.inflationCost += currentCost * 0.0015
-		inflationCost += currentCost * 0.0015
+		Global.coinsPerSecond += 0.1
+		Global.inflationCost += currentCost * 0.0050
+		inflationCost += currentCost *0.0050
 		inflationCost = round(inflationCost * 10) / 10
 
+
 func _on_timer_timeout() -> void:
-	Global.coinsPerSecond -= 10000000
+	Global.coins += Global.coinsPerSecond

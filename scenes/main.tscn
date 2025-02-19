@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://cj733nmifxim7"]
+[gd_scene load_steps=20 format=3 uid="uid://cj733nmifxim7"]
 
 [ext_resource type="Texture2D" uid="uid://dsgcshqs7he63" path="res://icon.svg" id="1_1e0lb"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_escjf"]
 [ext_resource type="Script" path="res://scripts/texture_button.gd" id="2_ib28b"]
 [ext_resource type="Script" path="res://scripts/default_skin.gd" id="4_6gnap"]
 [ext_resource type="Script" path="res://scripts/cookie_button.gd" id="4_o77vl"]
-[ext_resource type="Script" path="res://scripts/coinsperclick.gd" id="4_pgstg"]
-[ext_resource type="Script" path="res://scripts/auto_clicker.gd" id="5_mtf80"]
-[ext_resource type="Texture2D" uid="uid://corkqop2cds5q" path="res://assets/pngtree-cartoon-cookies-png-image_6516299.png" id="5_uxxyx"]
+[ext_resource type="Texture2D" uid="uid://b8tbv5lvold2s" path="res://assets/buttons/l1buttonlayer.png" id="5_8f42n"]
+[ext_resource type="Texture2D" uid="uid://corkqop2cds5q" path="res://assets/buttons/pngtree-cartoon-cookies-png-image_6516299.png" id="5_uxxyx"]
 [ext_resource type="Script" path="res://scripts/cookie_skin.gd" id="6_3dlfj"]
 [ext_resource type="Script" path="res://scripts/coin_click_stats.gd" id="6_fwd8j"]
 [ext_resource type="Script" path="res://scripts/ultra_clicker.gd" id="6_qbfmo"]
+[ext_resource type="Script" path="res://scripts/+1_ppc.gd" id="6_u2fgx"]
+[ext_resource type="FontFile" uid="uid://tjtx51qpc7gr" path="res://assets/fonts/PixeloidSansBold-PKnYd.ttf" id="6_uoiif"]
+[ext_resource type="Script" path="res://scripts/+0_1_pps.gd" id="8_kdpfw"]
 [ext_resource type="Script" path="res://scripts/better_curso.gd" id="10_3p1cm"]
 [ext_resource type="Script" path="res://scripts/employee.gd" id="10_tdnlw"]
 [ext_resource type="Script" path="res://scripts/cat.gd" id="11_42jxk"]
@@ -81,21 +83,63 @@ metadata/_tab_index = 0
 [node name="ShopButtons" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer/Shop"]
 layout_mode = 2
 
-[node name="coinsperclick" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+[node name="+1ppc" type="TextureButton" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
-text = "+1 coins per click
--50"
-script = ExtResource("4_pgstg")
+texture_normal = ExtResource("5_8f42n")
+stretch_mode = 0
+script = ExtResource("6_u2fgx")
 
-[node name="Auto clicker" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+1ppc"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+1ppc/CenterContainer"]
+texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Auto-clicker"
-script = ExtResource("5_mtf80")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_uoiif")
+theme_override_font_sizes/font_size = 20
+text = "More... Mice??"
 
-[node name="Timer" type="Timer" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker"]
+[node name="+0_1pps" type="TextureButton" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
+layout_mode = 2
+texture_normal = ExtResource("5_8f42n")
+stretch_mode = 0
+script = ExtResource("8_kdpfw")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+0_1pps"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+0_1pps/CenterContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_uoiif")
+theme_override_font_sizes/font_size = 20
+text = "Download RAM"
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+0_1pps"]
 autostart = true
 
 [node name="Ultra clicker" type="Button" parent="CanvasLayer/Control/TabContainer/Shop/ShopButtons"]
@@ -193,9 +237,9 @@ script = ExtResource("2_escjf")
 
 [connection signal="pressed" from="CanvasLayer/Control/Buttons/DefaultButton" to="CanvasLayer/Control/Buttons/DefaultButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Buttons/CookieButton" to="CanvasLayer/Control/Buttons/CookieButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/coinsperclick" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/coinsperclick" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" method="_on_pressed"]
-[connection signal="timeout" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker/Timer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto clicker" method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+1ppc" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+1ppc" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+0_1pps" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+0_1pps" method="_on_pressed"]
+[connection signal="timeout" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+0_1pps/Timer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/+0_1pps" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Ultra clicker" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Ultra clicker" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto spammer" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Auto spammer" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Better curso" to="CanvasLayer/Control/TabContainer/Shop/ShopButtons/Better curso" method="_on_pressed"]
